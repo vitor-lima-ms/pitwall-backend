@@ -4,10 +4,10 @@ services:
       context: ./
       dockerfile: Dockerfile.dev
     command: npm run start:debug
-    container_name: pitwall-backend
+    container_name: backend-pitwall
     env_file:
       - .env
-    image: pitwall-backend-image
+    image: backend-pitwall-image
     ports:
       - 3000:3000
       - 9229:9229
