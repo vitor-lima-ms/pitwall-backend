@@ -5,6 +5,7 @@ import { TransformInterceptor } from "./nestjs-common-non-module/interceptors/tr
 /* Module imports */
 import { DbUtilsModule } from "./modules/nestjs-common-module/utils/db/db-utils.module";
 import { MessagesUtilsModule } from "./modules/nestjs-common-module/utils/messages/messages-utils.module";
+import { NumberUtilsModule } from "./modules/nestjs-common-module/utils/number/number-utils.module";
 import { StringUtilsModule } from "./modules/nestjs-common-module/utils/string/string-utils.module";
 /* Nest.js imports */
 import { APP_FILTER } from "@nestjs/core";
@@ -21,6 +22,7 @@ import { Module } from "@nestjs/common";
     }),
     DbUtilsModule,
     MessagesUtilsModule,
+    NumberUtilsModule,
     StringUtilsModule,
   ],
   providers: [
