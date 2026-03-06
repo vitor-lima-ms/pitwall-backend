@@ -1,0 +1,18 @@
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    command: npm run start:debug
+    container_name: pitwall-backend
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+    image: pitwall-backend-image
+    ports:
+      - 3000:3000
+      - 9229:9229
+    volumes:
+      - ./dist:/app/dist
+      - ./src:/app/src
