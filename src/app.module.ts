@@ -11,7 +11,6 @@ import { APP_FILTER } from "@nestjs/core";
 import { APP_INTERCEPTOR } from "@nestjs/core";
 import { ConfigModule } from "@nestjs/config";
 import { Module } from "@nestjs/common";
-import { TypeOrmModule } from "@nestjs/typeorm";
 /* App module */
 @Module({
   imports: [
@@ -23,14 +22,6 @@ import { TypeOrmModule } from "@nestjs/typeorm";
     DbUtilsModule,
     MessagesUtilsModule,
     StringUtilsModule,
-    /* ORM module */
-    TypeOrmModule.forRoot({
-      autoLoadEntities: true,
-      synchronize: process.env.NODE_ENV === "development" ? true : false,
-      type: "postgres",
-      url:
-        process.env.NODE_ENV === "development" ? process.env.POSTGRES_URL : "",
-    }),
   ],
   providers: [
     {
