@@ -1,4 +1,4 @@
 /* ControllersRoutePathPrefixesEnum */
 export enum ControllersRoutePathPrefixesEnum {
-  USER = "users",
+  DRIVER = "api/drivers",
 }
