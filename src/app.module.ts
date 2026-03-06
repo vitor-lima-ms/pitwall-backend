@@ -1,12 +1,10 @@
 /* Filter imports */
-import { HttpExceptionFilter } from "./nestjs-common-non-module/exceptions/filters/http-exception.filter";
+import { HttpExceptionFilter } from "./common/filters/http-exception.filter";
 /* Interceptor imports */
-import { TransformInterceptor } from "./nestjs-common-non-module/interceptors/transform.interceptor";
+import { TransformInterceptor } from "./common/interceptors/transform.interceptor";
 /* Module imports */
-import { DbUtilsModule } from "./modules/nestjs-common-module/utils/db/db-utils.module";
-import { MessagesUtilsModule } from "./modules/nestjs-common-module/utils/messages/messages-utils.module";
-import { NumberUtilsModule } from "./modules/nestjs-common-module/utils/number/number-utils.module";
-import { StringUtilsModule } from "./modules/nestjs-common-module/utils/string/string-utils.module";
+import { DriversModule } from "./modules/drivers/drivers.module";
+import { ExternalApiModule } from "./modules/external-api/external-api.module";
 /* Nest.js imports */
 import { APP_FILTER } from "@nestjs/core";
 import { APP_INTERCEPTOR } from "@nestjs/core";
@@ -20,10 +18,8 @@ import { Module } from "@nestjs/common";
       cache: true,
       envFilePath: [".env"],
     }),
-    DbUtilsModule,
-    MessagesUtilsModule,
-    NumberUtilsModule,
-    StringUtilsModule,
+    DriversModule,
+    ExternalApiModule,
   ],
   providers: [
     {
