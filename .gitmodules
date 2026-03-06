@@ -1,6 +1,3 @@
-[submodule "src/nestjs-common-non-module"]
-	path = src/nestjs-common-non-module
-	url = ../nestjs-common-non-module.git
 [submodule "src/modules/nestjs-common-module"]
 	path = src/modules/nestjs-common-module
 	url = ../nestjs-common-module.git
