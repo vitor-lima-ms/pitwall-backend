@@ -1,0 +1,27 @@
+services:
+  api:
+    build:
+      context: ./
+      dockerfile: Dockerfile.dev
+    command: npm run start:debug
+    container_name: [PREENCHER]
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+    image: [PREENCHER]-image
+    ports:
+      - 3000:3000
+      - 9229:9229
+    volumes:
+      - ./dist:/app/dist
+      - ./src:/app/src
+  postgres:
+    container_name: dev-db
+    env_file:
+      - .env
+    image: postgres:16
+    ports:
+      - 5431:5432
+    volumes:
+      - ./postgres:/var/lib/postgresql/data

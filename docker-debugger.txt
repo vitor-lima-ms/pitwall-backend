@@ -1,0 +1,1 @@
+Para que o debugger no app dockerizado funcione, é necessário que a pasta /dist esteja na raiz do projeto localmente (i.e., também precisamos buildar o projeto fora do container)
