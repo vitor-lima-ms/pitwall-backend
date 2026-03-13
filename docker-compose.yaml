@@ -4,13 +4,28 @@ services:
       context: ./
       dockerfile: Dockerfile.dev
     command: npm run start:debug
-    container_name: backend-pitwall
+    container_name: pitwall-api
     env_file:
       - .env
-    image: backend-pitwall-image
+    image: pitwall-api-image
     ports:
-      - 3000:3000
+      - 3001:3001
       - 9229:9229
     volumes:
       - ./dist:/app/dist
       - ./src:/app/src
+
+  ui:
+    build:
+      context: ../frontend-pitwall/
+      dockerfile: Dockerfile.dev
+    container_name: pitwall-ui
+    depends_on:
+      - api
+    env_file:
+      - ../frontend-pitwall/.env
+    image: pitwall-ui-image
+    ports:
+      - 3000:3000
+    volumes:
+      - ../frontend-pitwall/src:/app/src
