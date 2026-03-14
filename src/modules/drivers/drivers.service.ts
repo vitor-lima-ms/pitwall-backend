@@ -14,6 +14,24 @@ export class DriversService {
 
     const drivers = (await response.json()) as GetDriversDto;
 
+    if (Number(drivers.MRData.total) > Number(drivers.MRData.limit)) {
+      const loopRange = parseInt(
+        String(Number(drivers.MRData.total) / Number(drivers.MRData.limit)),
+      );
+
+      for (let i = 1; i <= loopRange; i++) {
+        const response = await fetch(
+          this.externalApiService.getDrivers(year, 30 * i),
+        );
+
+        const offsetDrivers = (await response.json()) as GetDriversDto;
+
+        offsetDrivers.MRData.DriverTable.Drivers.forEach((value) =>
+          drivers.MRData.DriverTable.Drivers.push(value),
+        );
+      }
+    }
+
     return drivers;
   }
 }
