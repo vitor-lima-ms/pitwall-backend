@@ -3,6 +3,8 @@ import { HttpExceptionFilter } from "./common/filters/http-exception.filter";
 /* Interceptor imports */
 import { TransformInterceptor } from "./common/interceptors/transform.interceptor";
 /* Module imports */
+import { CircuitsModule } from "./modules/circuits/circuits.module";
+import { ConstructorsModule } from "./modules/constructors/constructors.module";
 import { DriversModule } from "./modules/drivers/drivers.module";
 import { ExternalApiModule } from "./modules/external-api/external-api.module";
 /* Nest.js imports */
@@ -18,6 +20,8 @@ import { Module } from "@nestjs/common";
       cache: true,
       envFilePath: [".env"],
     }),
+    CircuitsModule,
+    ConstructorsModule,
     DriversModule,
     ExternalApiModule,
   ],
