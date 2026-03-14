@@ -14,14 +14,14 @@ async function bootstrap() {
 
   const configService = app.get(ConfigService);
 
-  const swaggerConfig = new DocumentBuilder().setTitle("AmbTec").build();
+  const swaggerConfig = new DocumentBuilder().setTitle("PitWall").build();
 
   const swaggerDocumentFactory = () =>
     SwaggerModule.createDocument(app, swaggerConfig);
 
   SwaggerModule.setup("swagger", app, swaggerDocumentFactory);
 
-  await app.listen(configService.get("PORT") ?? 3000);
+  await app.listen(configService.get("PORT") ?? 3001);
 }
 /* eslint-disable @typescript-eslint/no-floating-promises */
 bootstrap();
